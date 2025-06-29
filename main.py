@@ -22,13 +22,22 @@ def get_sox_version():
     except (subprocess.CalledProcessError, FileNotFoundError):
         return "sox not found or version could not be determined."
 
+def get_app_version():
+    """Get application version from version file"""
+    try:
+        with open('version', 'r') as f:
+            return f.read().strip()
+    except FileNotFoundError:
+        return "unknown"
+
 @app.route('/')
 def home():
     """Home page route"""
     session['session_id'] = str(uuid.uuid4())
     python_version = sys.version
     sox_version = get_sox_version()
-    return render_template('index.html', python_version=python_version, sox_version=sox_version)
+    app_version = get_app_version()
+    return render_template('index.html', python_version=python_version, sox_version=sox_version, app_version=app_version)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
