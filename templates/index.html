@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>online char2mozzi with sox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>online char2mozzi with sox</h1>
+        <div class="versions" style="text-align: left; margin-bottom: 20px;">
+            <p style="margin: 0; color: #666;">Python: {{ python_version }}</p>
+            <p style="margin: 0; color: #666;">{{ sox_version }}</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="settings-form">
+                    <h3>Settings</h3>
+                    <div class="form-group">
+                        <label for="samplingRate">Sampling Rate:</label>
+                        <select id="samplingRate" name="sampling_rate">
+                            <option value="16384" selected>16384 Hz</option>
+                            <option value="32768">32768 Hz</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="outputPrefix">Output Prefix:</label>
+                        <input type="text" id="outputPrefix" name="output_prefix" disabled>
+                        <span id="outputPrefixError" style="color: red; display: none;">Invalid variable name</span>
+                    </div>
+                    <button id="generateBtn" disabled>Generate</button>
+            </div>
+            <div class="drop-zone-container">
+                <div class="drop-zone-area">
+                    <div class="drop-zone" id="dropZone">
+                        <div class="upload-icon">📁</div>
+                        <h3>Drop your audio files here</h3>
+                        <p>or click to select files</p>
+                        <div class="supported-formats">
+                            Supported formats: .wav, .aiff, .aif, .flac, .mp3, .ogg, .m4a, .wma, .au, .snd
+                        </div>
+                        <input type="file" id="fileInput" class="file-input" multiple accept=".wav,.aiff,.aif,.flac,.mp3,.ogg,.m4a,.wma,.au,.snd">
+                    </div>
+                </div>
+                <div class="results-area">
+                    <div class="file-info" id="fileInfo">
+                        <h4>Selected Files:</h4>
+                        <ul id="fileList"></ul>
+                    </div>
+                    <div class="file-info" id="generateResults" style="display: none; margin-top: 20px;">
+                        <h4>Generation Results:</h4>
+                        <div id="generateResultsContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- H File Content Display Section -->
+        <div id="hFileDisplay" style="display: none; margin-top: 30px;">
+            <h3>Generated Header File Content</h3>
+            <div id="hFileContent" style="background-color: #f0f8ff; padding: 20px; border: 1px solid #b0d4f1; border-radius: 5px;">
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
