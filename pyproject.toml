@@ -1,5 +1,5 @@
 [project]
-name = "wav2mozzi"
+name = "audio2mozzi"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
