@@ -14,8 +14,7 @@ audio2mozzi is a tool for converting audio files into wavetable format (C header
 
 ## Requirements
 
-- Python 3.13 or higher
-- Flask 3.1.1 or higher
+- uv https://github.com/astral-sh/uv
 - SoX (Sound eXchange) - for audio file conversion
 
 ## Installation
