@@ -39,7 +39,8 @@ sudo apt-get install sox
 # macOS
 brew install sox
 ```
-# windows
+
+windows:
 - Download SoX from: https://sourceforge.net/projects/sox/
 - Download libmad-0.dll  libmp3lame-0.dll if you need to convert mp3 files
 
