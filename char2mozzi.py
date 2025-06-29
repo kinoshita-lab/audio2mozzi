@@ -38,7 +38,6 @@ import sys, array, os, textwrap, random
 def char2mozzi(infile, outfile, tablename, samplerate):
 	fin = open(os.path.expanduser(infile), "rb")
 	uint8_tstoread = os.path.getsize(os.path.expanduser(infile))
-	##print uint8_tstoread
 	valuesfromfile = array.array('b') # array of signed int8_t ints
 	try:
 		valuesfromfile.fromfile(fin, uint8_tstoread)

@@ -12,7 +12,6 @@ app.secret_key = os.urandom(24)
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # 5MB max file size
-original_filename = None
 
 def get_sox_version():
     """Get sox version"""
@@ -34,8 +33,6 @@ def home():
 @app.route('/upload', methods=['POST'])
 def upload_file():
     """Handle file uploads"""
-    global original_filename
-    
     session_id = session.get('session_id')
     if not session_id:
         return jsonify({'error': 'No session found'}), 400
@@ -61,7 +58,6 @@ def upload_file():
         
     if file and sampling_rate:
         original_filename = file.filename
-        # We don't need to add uuid to filename anymore as it's in a unique folder
         filepath = os.path.join(session_folder, original_filename)
         file.save(filepath)
         
