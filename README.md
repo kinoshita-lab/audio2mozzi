@@ -1,10 +1,10 @@
-# wav2mozzi
+# audio2mozzi
 
 A web application for converting audio files to Mozzi wavetables
 
 ## Overview
 
-wav2mozzi is a tool for converting audio files into wavetable format (C header files) that can be used with [Mozzi](https://github.com/sensorium/Mozzi), an audio synthesis library for Arduino.
+audio2mozzi is a tool for converting audio files into wavetable format (C header files) that can be used with [Mozzi](https://github.com/sensorium/Mozzi), an audio synthesis library for Arduino.
 
 ## Features
 
@@ -57,7 +57,7 @@ uv run python main.py
 ## Project Structure
 
 ```
-wav2mozzi/
+audio2mozzi/
 ├── main.py           # Flask application
 ├── char2mozzi.py     # Conversion script(from mozzi)
 ├── templates/        # HTML templates
